@@ -1,29 +1,11 @@
 # My New Blog!
 
-I've got a lot to say, and now I have a place to say it!!!!!
+# Updated performance for the blog:
 
-Read all my amazing posts!!!!! You can load them into the app with: `rake load:blog`
+  changed the posts controller to eager load all comments and replies when loading the posts index, should drastically cut requests and increase speed.
 
-Since I know you want to read them all, I designed my page to show EVERYTHING on the front page of the site!!!!!
+  comments partial no longer renders reply partial, instead simply writes the reply body in its own partial
 
-I know it is a little slow (but totes worth it!!!!)... _Do you know how I can make it faster?_
+  added mini-profiler gem to monitor performance durring testing
 
-# I'm feeling insecure...
-
-Well, I got some requirements from marketing to make sure we distinguish between published and unpublished posts. I made some changes to the html and css.
-
-But now security auditors are telling me I have some security vulnerabilities! They were able to use the strings below to hack my site!!!
-
-What do I do to fix it???
-
-
-XSS:
-```
-http://localhost:3000/posts?utf8=%E2%9C%93&search=archive&status=foo=%22bar%22%3E%3Cscript%3Ealert%28%22p0wned!!!%22%29%3C/script%3E%3Cp%20data-foo
-```
-
-SQL Injection:
-
-```
-foo%' OR true) --
-```
+  added file perflog to show what changes I made during development and tehir resulting performance result
