@@ -1,0 +1,28 @@
+Performance Logging Trials
+
+Modification                                    Resulting load time
+------------                                   -------------------
+|Default                                        35,000 ms
+|Post.find(:all, :include => :comments)         33,000 ms
+|link_to reply instead of render                30,000 ms
+|truncate comment length in index               31,000 ms
+|Post.includes(:comments).all                   32,000 ms
+|Post.includes([comments: :replies]).all         5,000 ms  <- Woooo!
+|un-did comment truncate and reply link          3,500 ms  <- this is not using "render _reply" which helps a lot
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
