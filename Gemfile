@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.13'
+gem 'rails', '~> 3.2'
 
 gem 'pg'
 gem 'kaminari'
@@ -19,6 +19,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'hirb'
+  gem 'brakeman', :require => false
 end
 
 group :test do

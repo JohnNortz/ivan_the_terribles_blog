@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    params[:status] = ['published', 'unpublished'].detect('published') { |s| s == params[:status] } || 'published'
     @posts = Post.where(published: params[:status] == 'published')
       .search(params[:search])
       .page(params[:page])
