@@ -20,10 +20,16 @@ What do I do to fix it???
 XSS:
 ```
 http://localhost:3000/posts?utf8=%E2%9C%93&search=archive&status=foo=%22bar%22%3E%3Cscript%3Ealert%28%22p0wned!!!%22%29%3C/script%3E%3Cp%20data-foo
+
+changed the X-XSS in applicatoin controller and also changed the controller to set default values for 'published' field
+
 ```
 
 SQL Injection:
+FIXED by: model by changing the self.search to have .where("title like ?", "%#{search}%") to disallow escaping the statement
 
 ```
 foo%' OR true) --
+
+FIXED by: this needs a sanitized input, added a sanitized method to the content tag in the _search form
 ```
